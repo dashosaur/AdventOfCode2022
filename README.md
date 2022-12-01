@@ -1,6 +1,6 @@
-# Advent of Code 2020
+# Advent of Code 2022
 
-These are my [Advent of Code 2020](https://adventofcode.com/2020) puzzle solutions and puzzle running tool. The solutions and tool are written in Swift and can be run as a command line tool on macOS or with the included Xcode project. The tool can optionally download and cache puzzle input from adventofcode.com or print private leaderboard statistics if a session cookie is provided.
+These are my [Advent of Code 2022](https://adventofcode.com/2022) puzzle solutions and puzzle running tool. The solutions and tool are written in Swift and can be run as a command line tool on macOS or with the included Xcode project. The tool can optionally download and cache puzzle input from adventofcode.com or print private leaderboard statistics if a session cookie is provided.
 
 ## Running Puzzles
 
@@ -55,7 +55,7 @@ $ swift run AdventOfCode view-leaderboard 976765 --cookie $AOC_COOKIE --puzzle-i
 
 <b>Day 2                 Part 1                Part 2</b>
 Peppermint Butler     12/01, 9:03:56 PM     12/01, 9:06:51 PM     
-Princess Bubblegun    12/01, 9:06:14 PM     12/01, 9:14:29 PM     
+Princess Bubblegum    12/01, 9:06:14 PM     12/01, 9:14:29 PM     
 Jake the Dog          12/01, 9:41:39 PM     12/01, 9:52:02 PM     
 Finn the Human        12/01, 9:42:30 PM     12/01, 9:55:36 PM     
 Marceline             12/03, 10:12:14 PM    12/03, 10:16:17 PM    
@@ -63,7 +63,7 @@ BMO                   Not Yet               Not Yet
 </pre>
 
 ## Retrieving Your Session Cookie
-You will need to provide a session cookie to authenticate for downloading puzzle input or leaderboard stats. In Safari the cookie can be retrieved from Develop → Show Web Inspector → Storage.
+You will need to provide a session cookie to authenticate for downloading puzzle input or leaderboard stats. In Safari the cookie can be retrieved by copying the value of "session" under Develop → Show Web Inspector → Storage.
 
 You can store your session cookie in an environment variable to ease running puzzles (e.g. `echo 'export AOC_COOKIE=<session-cookie>' >> ~/.zshenv`).
 
@@ -83,8 +83,11 @@ Unit tests for running puzzles with custom test input are available in `PuzzleTe
 class AOCTests: XCTestCase {
 
     func testAOC1() {
-        XCTAssertEqual(AOC1().solve1(input: "1721,979,366,299,675,1456"), 514579)
-        XCTAssertEqual(AOC1().solve2(input: "1721,979,366,299,675,1456"), 241861950)
+        let puzzle = AOC1()
+        let input = "1721,979,366,299,675,1456"
+        
+        XCTAssertEqual(puzzle.solve1(input: input), 514579)
+        XCTAssertEqual(puzzle.solve2(input: input), 241861950)
     }
 
 }
