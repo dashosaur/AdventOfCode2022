@@ -6,7 +6,7 @@
 
 import Foundation
 
-fileprivate enum Result: Int {
+fileprivate enum Outcome: Int {
     case lose   = 0
     case draw   = 3
     case win    = 6
@@ -43,7 +43,7 @@ fileprivate enum Shape: Int, CaseIterable {
         }
     }
     
-    func result(against shape: Shape) -> Result {
+    func outcome(against shape: Shape) -> Outcome {
         switch (rawValue - shape.rawValue + 3) % 3 {
         case 0:
             return .draw
@@ -63,7 +63,7 @@ struct AOC2: Puzzle {
             let (c1, c2) = line.splitInTwo(" ")
             let shape1 = Shape(c1)!
             let shape2 = Shape(c2)!
-            return shape2.result(against: shape1).rawValue + shape2.rawValue
+            return shape2.outcome(against: shape1).rawValue + shape2.rawValue
         }
     }
     
@@ -71,9 +71,9 @@ struct AOC2: Puzzle {
         input.lines.reduceSum { line in
             let (c1, c2) = line.splitInTwo(" ")
             let shape1 = Shape(c1)!
-            let result = Result(c2)!
-            let shape2 = Shape.allCases.first(where: { $0.result(against: shape1) == result })!
-            return result.rawValue + shape2.rawValue
+            let outcome = Outcome(c2)!
+            let shape2 = Shape.allCases.first(where: { $0.outcome(against: shape1) == outcome })!
+            return outcome.rawValue + shape2.rawValue
         }
     }
 }
