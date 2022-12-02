@@ -15,7 +15,7 @@ struct PuzzleSet {
     private let puzzlesByIndex: [Int : Puzzle] = [
         0 : Example(),
         1 : AOC1(),
-//        2 : AOC2(),
+        2 : AOC2(),
 //        3 : AOC3(),
 //        4 : AOC4(),
 //        5 : AOC5(),

@@ -18,10 +18,10 @@ struct Leaderboard {
         
         init(ID: Int, jsonDictionary: Dictionary<String, Any>) {
             self.ID = ID
-            self.name = jsonDictionary["name"] as! String
-            self.localScore = jsonDictionary["local_score"] as! Int
-            self.globalScore = jsonDictionary["global_score"] as! Int
-            self.stars = jsonDictionary["stars"] as! Int
+            self.name = jsonDictionary["name"] as? String ?? "nil"
+            self.localScore = jsonDictionary["local_score"] as? Int ?? 0
+            self.globalScore = jsonDictionary["global_score"] as? Int ?? 0
+            self.stars = jsonDictionary["stars"] as? Int ?? 0
         }
         
         func printStatistics() {
