@@ -20,6 +20,8 @@
 		C915D48F2939BC6C0003C88F /* AOC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915D48D2939BC6C0003C88F /* AOC2.swift */; };
 		C915D491293B0E0B0003C88F /* AOC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915D490293B0E0B0003C88F /* AOC3.swift */; };
 		C915D492293B0E0B0003C88F /* AOC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915D490293B0E0B0003C88F /* AOC3.swift */; };
+		C915D494293B19CE0003C88F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915D493293B19CE0003C88F /* Character.swift */; };
+		C915D495293B19CE0003C88F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C915D493293B19CE0003C88F /* Character.swift */; };
 		C91810692591C6B100137BAA /* print.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91810682591C6B100137BAA /* print.swift */; };
 		C918106A2591C6B100137BAA /* print.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91810682591C6B100137BAA /* print.swift */; };
 		C91CAA2023B6E2F300DB2F6B /* PuzzleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CAA1F23B6E2F300DB2F6B /* PuzzleTests.swift */; };
@@ -77,6 +79,7 @@
 		C914FD92257CA9460075DC59 /* HTTPCookieStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookieStorage.swift; sourceTree = "<group>"; };
 		C915D48D2939BC6C0003C88F /* AOC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOC2.swift; sourceTree = "<group>"; };
 		C915D490293B0E0B0003C88F /* AOC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOC3.swift; sourceTree = "<group>"; };
+		C915D493293B19CE0003C88F /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		C91810682591C6B100137BAA /* print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = print.swift; sourceTree = "<group>"; };
 		C91CAA1F23B6E2F300DB2F6B /* PuzzleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleTests.swift; sourceTree = "<group>"; };
 		C93CC4BF23B597FE003FC00C /* AdventOfCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdventOfCode; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +191,7 @@
 				C914FD81257B60FC0075DC59 /* IndexSet.swift */,
 				C945A9942578090D00932A38 /* Sequence.swift */,
 				C945A990257808F300932A38 /* String.swift */,
+				C915D493293B19CE0003C88F /* Character.swift */,
 				C96A96EF2759EA9C008E639C /* Bool.swift */,
 				C9F0A9622578B141001FA924 /* Tuple.swift */,
 				C9858F762584A2100083B2C9 /* Point.swift */,
@@ -311,6 +315,7 @@
 				C945A9832577978C00932A38 /* PuzzleSet.swift in Sources */,
 				C9858F692580A2C20083B2C9 /* Program.swift in Sources */,
 				C91CAA2123B6E32400DB2F6B /* AOC1.swift in Sources */,
+				C915D495293B19CE0003C88F /* Character.swift in Sources */,
 				C914FD83257B60FC0075DC59 /* IndexSet.swift in Sources */,
 				C945A9982578099600932A38 /* Date.swift in Sources */,
 				C96A96FD275C919F008E639C /* stride.swift in Sources */,
@@ -340,6 +345,7 @@
 				C945A9822577978700932A38 /* PuzzleSet.swift in Sources */,
 				C9858F682580A2C20083B2C9 /* Program.swift in Sources */,
 				C945A9732576007900932A38 /* Example.swift in Sources */,
+				C915D494293B19CE0003C88F /* Character.swift in Sources */,
 				C914FD82257B60FC0075DC59 /* IndexSet.swift in Sources */,
 				C945A9792577708100932A38 /* InputStore.swift in Sources */,
 				C96A96FC275C919F008E639C /* stride.swift in Sources */,

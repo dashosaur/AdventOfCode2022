@@ -7,9 +7,7 @@
 import Foundation
 
 fileprivate extension Character {
-    var priority: Int {
-        Int(asciiValue!) - (isUppercase ? 38 : 96)
-    }
+    var priority: Int { index! }
 }
 
 struct AOC3: Puzzle {
