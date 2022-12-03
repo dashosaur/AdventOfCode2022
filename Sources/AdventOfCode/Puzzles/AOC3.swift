@@ -14,9 +14,9 @@ struct AOC3: Puzzle {
     func solve1(input: String) -> Int {
         input.lines.reduceSum { line in
             let count = line.count / 2
-            let firstRucksack = Set(line.prefix(count))
+            let firstCompartment = Set(line.prefix(count))
             return line.suffix(count)
-                .first { firstRucksack.contains($0) }!
+                .first { firstCompartment.contains($0) }!
                 .priority
         }
     }
