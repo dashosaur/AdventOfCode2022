@@ -7,9 +7,13 @@
 import Foundation
 
 fileprivate extension ClosedRange where Bound == Int {
-    init(_ text: any StringProtocol) {
+    init(_ text: some StringProtocol) {
         let splits = text.split(separator: "-")
         self = Int(splits[0])!...Int(splits[1])!
+    }
+    
+    func contains(_ range: ClosedRange<Int>) -> Bool {
+        contains(range.lowerBound) && contains(range.upperBound)
     }
 }
 
@@ -22,7 +26,7 @@ struct AOC4: Puzzle {
     func solve1(input: String) -> Int {
         input.lines.count { line in
             let (r1, r2) = parseRanges(line: line)
-            return Set(r1).isSubset(of: Set(r2)) || Set(r2).isSubset(of: Set(r1))
+            return r1.contains(r2) || r2.contains(r1)
         }
     }
     
