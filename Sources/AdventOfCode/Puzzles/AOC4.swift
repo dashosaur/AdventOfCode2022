@@ -18,22 +18,24 @@ fileprivate extension ClosedRange where Bound == Int {
 }
 
 struct AOC4: Puzzle {
-    private func parseRanges(line: String) -> (ClosedRange<Int>, ClosedRange<Int>) {
+    private func compareRanges(in line: String, comparator: (ClosedRange<Int>, ClosedRange<Int>) -> Bool) -> Bool {
         let ranges = line.split(separator: ",").map(ClosedRange.init)
-        return (ranges[0], ranges[1])
+        return comparator(ranges[0], ranges[1])
     }
     
     func solve1(input: String) -> Int {
         input.lines.count { line in
-            let (r1, r2) = parseRanges(line: line)
-            return r1.contains(r2) || r2.contains(r1)
+            compareRanges(in: line) { r1, r2 in
+                r1.contains(r2) || r2.contains(r1)
+            }
         }
     }
     
     func solve2(input: String) -> Int {
         input.lines.count { line in
-            let (r1, r2) = parseRanges(line: line)
-            return r1.overlaps(r2)
+            compareRanges(in: line) { r1, r2 in
+                r1.overlaps(r2)
+            }
         }
     }
 }
