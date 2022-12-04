@@ -64,4 +64,19 @@ class PuzzleTests: XCTestCase {
         XCTAssertEqual(puzzle.solve2(input: input), 70)
     }
     
+    func testAOC4() {
+        let puzzle = AOC4()
+        let input = """
+        2-4,6-8
+        2-3,4-5
+        5-7,7-9
+        2-8,3-7
+        6-6,4-6
+        2-6,4-8
+        """
+        
+        XCTAssertEqual(puzzle.solve1(input: input), 2)
+        XCTAssertEqual(puzzle.solve2(input: input), 4)
+    }
+    
 }
