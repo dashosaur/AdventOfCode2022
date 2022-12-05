@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - String Splitting
 
-extension String {
+extension StringProtocol {
     func components(seperatedByCharactersIn characterSetString: String) -> [String] {
         components(separatedBy: CharacterSet(charactersIn: characterSetString)).filter { $0 != "" }
     }
@@ -32,7 +32,7 @@ extension String {
 
 // MARK: - Value Parsing
 
-extension String {
+extension StringProtocol {
     var integers: [Int] {
         componentStrings.map { string in
             if let value = Int(string) { return value }
@@ -41,9 +41,9 @@ extension String {
     }
     
     var digitArray: [Int] {
-        self.map { char in
-            if let value = Int(String(char)) { return value }
-            fatalError("Cannot convert \(char) to Int")
+        map { character in
+            if let value = Int(String(character)) { return value }
+            fatalError("Cannot convert \(character) to Int")
         }
     }
     

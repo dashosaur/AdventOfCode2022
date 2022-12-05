@@ -7,6 +7,7 @@
 import Foundation
 
 extension Character {
+    /// Returns the 1-based index of alphabet characters (e.g. a=1, z=26, A=27)
     var index: Int? {
         guard let value = asciiValue.map(Int.init) else { return nil }
         if (65...90).contains(value) {

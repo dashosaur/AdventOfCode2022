@@ -6,22 +6,11 @@
 
 import Foundation
 
-fileprivate extension ClosedRange where Bound == Int {
-    init(_ text: some StringProtocol) {
-        let splits = text.split(separator: "-")
-        self = Int(splits[0])!...Int(splits[1])!
-    }
-    
-    func contains(_ range: ClosedRange<Int>) -> Bool {
-        contains(range.lowerBound) && contains(range.upperBound)
-    }
-}
-
 struct AOC4: Puzzle {
     typealias Answer = Int
     
     private func compareRanges(in line: String, comparator: (ClosedRange<Int>, ClosedRange<Int>) -> Bool) -> Bool {
-        let ranges = line.split(separator: ",").map(ClosedRange.init)
+        let ranges = line.split(separator: ",").map(\.range)
         return comparator(ranges[0], ranges[1])
     }
     
