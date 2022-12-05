@@ -58,6 +58,8 @@ fileprivate enum Shape: Int, CaseIterable {
 }
 
 struct AOC2: Puzzle {
+    typealias Answer = Int
+    
     func solve1(input: String) -> Int {
         input.lines.reduceSum { line in
             let (c1, c2) = line.splitInTwo(" ")

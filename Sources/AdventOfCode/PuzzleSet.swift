@@ -6,19 +6,20 @@
 
 import Foundation
 
-protocol Puzzle {
-    func solve1(input: String) -> Int
-    func solve2(input: String) -> Int
+protocol Puzzle<Answer> {
+    associatedtype Answer
+    func solve1(input: String) -> Answer
+    func solve2(input: String) -> Answer
 }
 
 struct PuzzleSet {
-    private let puzzlesByIndex: [Int : Puzzle] = [
+    private let puzzlesByIndex: [Int : any Puzzle] = [
         0 : Example(),
         1 : AOC1(),
         2 : AOC2(),
         3 : AOC3(),
         4 : AOC4(),
-//        5 : AOC5(),
+        5 : AOC5(),
 //        6 : AOC6(),
 //        7 : AOC7(),
 //        8 : AOC8(),
@@ -41,7 +42,7 @@ struct PuzzleSet {
 //        25 : AOC25(),
     ]
     
-    func puzzle(at index: Int) -> Puzzle? {
+    func puzzle(at index: Int) -> (any Puzzle)? {
         puzzlesByIndex[index]
     }
     

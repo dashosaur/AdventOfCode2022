@@ -7,6 +7,8 @@
 import Foundation
 
 struct AOC1: Puzzle {
+    typealias Answer = Int
+    
     func solve1(input: String) -> Int {
         input.lineGroups.map({ $0.integers.sum }).max() ?? 0
     }

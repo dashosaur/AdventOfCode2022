@@ -18,6 +18,8 @@ fileprivate extension ClosedRange where Bound == Int {
 }
 
 struct AOC4: Puzzle {
+    typealias Answer = Int
+    
     private func compareRanges(in line: String, comparator: (ClosedRange<Int>, ClosedRange<Int>) -> Bool) -> Bool {
         let ranges = line.split(separator: ",").map(ClosedRange.init)
         return comparator(ranges[0], ranges[1])

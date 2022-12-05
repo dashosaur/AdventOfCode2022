@@ -11,6 +11,8 @@ fileprivate extension Character {
 }
 
 struct AOC3: Puzzle {
+    typealias Answer = Int
+    
     func solve1(input: String) -> Int {
         input.lines.reduceSum { line in
             let count = line.count / 2
