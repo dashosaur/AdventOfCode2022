@@ -47,6 +47,10 @@ extension StringProtocol {
         }
     }
     
+    var digitGrid: [[Int]] {
+        lines.map { $0.digitArray }
+    }
+    
     var range: ClosedRange<Int> {
         let values = components(separatedBy: "-")
         return Int(values[0])!...Int(values[1])!
