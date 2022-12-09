@@ -151,4 +151,34 @@ class PuzzleTests: XCTestCase {
         XCTAssertEqual(puzzle.solve2(input: input), 8)
     }
     
+    func testAOC9() {
+        let puzzle = AOC9()
+        let input = """
+        R 4
+        U 4
+        L 3
+        D 1
+        R 4
+        D 1
+        L 5
+        R 2
+        """
+        
+        XCTAssertEqual(puzzle.solve1(input: input), 13)
+        XCTAssertEqual(puzzle.solve2(input: input), 1)
+        
+        let input2 = """
+        R 5
+        U 8
+        L 8
+        D 3
+        R 17
+        D 10
+        L 25
+        U 20
+        """
+        
+        XCTAssertEqual(puzzle.solve2(input: input2), 36)
+    }
+    
 }

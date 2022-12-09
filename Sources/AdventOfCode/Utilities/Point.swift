@@ -12,8 +12,8 @@ func %%<T: BinaryInteger>(lhs: T, rhs: T) -> T {
 }
 
 struct Point: Hashable {
-    let x: Int
-    let y: Int
+    var x: Int
+    var y: Int
     
     init(_ x: Int, _ y: Int) {
         self.x = x
@@ -30,6 +30,10 @@ struct Point: Hashable {
     
     static func +(lhs: Point, rhs: Point) -> Point {
         Point(lhs.x + rhs.x, lhs.y + rhs.y)
+    }
+    
+    static func -(lhs: Point, rhs: Point) -> Point {
+        Point(lhs.x - rhs.x, lhs.y - rhs.y)
     }
     
     static func *(value: Int, point: Point) -> Point {
