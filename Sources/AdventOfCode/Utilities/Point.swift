@@ -32,8 +32,16 @@ struct Point: Hashable {
         Point(lhs.x + rhs.x, lhs.y + rhs.y)
     }
     
+    static func += (lhs: inout Point, rhs: Point) {
+        lhs = lhs + rhs
+    }
+    
     static func -(lhs: Point, rhs: Point) -> Point {
         Point(lhs.x - rhs.x, lhs.y - rhs.y)
+    }
+    
+    static func -= (lhs: inout Point, rhs: Point) {
+        lhs = lhs - rhs
     }
     
     static func *(value: Int, point: Point) -> Point {

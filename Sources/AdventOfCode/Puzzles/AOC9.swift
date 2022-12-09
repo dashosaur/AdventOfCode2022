@@ -39,13 +39,13 @@ struct AOC9: Puzzle {
         var knots = Array(repeatElement(Point.origin, count: knotCount))
         
         for line in input.lines {
-            let vector = Point(directionText: (line.split(separator: " ")[0]))!
+            let vector = Point(directionText: line.split(separator: " ")[0])!
             let magnitude = Int(line.split(separator: " ")[1])!
             
             for _ in 0..<magnitude {
-                knots[0] = knots[0] + vector
-                for i in 1...(knots.count-1) {
-                    knots[i].chasePoint(knots[i-1])
+                knots[0] += vector
+                for knotIndex in 1..<knots.count {
+                    knots[knotIndex].chasePoint(knots[knotIndex - 1])
                 }
                 tailVisits.insert(knots.last!)
             }
