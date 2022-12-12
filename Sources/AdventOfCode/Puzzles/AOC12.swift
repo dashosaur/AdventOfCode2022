@@ -16,9 +16,9 @@ fileprivate extension Character {
 struct AOC12: Puzzle {
     typealias Answer = Int
     
-    func shortestPath(grid: [[Int]], start: Point, end: Point) -> Int? {
-        var visitQueue = [start]
-        var distanceByPoint = [start : 0]
+    private func shortestPath(grid: [[Int]], startPoints: [Point], endPoint: Point) -> Int? {
+        var visitQueue = startPoints
+        var distanceByPoint = startPoints.reduce(into: [:]) { $0[$1] = 0 }
         
         while let curPoint = visitQueue.first, let curDistance = distanceByPoint[curPoint] {
             visitQueue.removeFirst()
@@ -31,41 +31,22 @@ struct AOC12: Puzzle {
             }
         }
         
-        return distanceByPoint[end]
+        return distanceByPoint[endPoint]
     }
     
     private func heightForCharacter(_ character: Character) -> Int {
         (character == "S" ? "a" : (character == "E" ? "z" : character)).index!
     }
     
-    func solve1(input: String) -> Int {
-        let lines = input.lines.map { Array($0) }
-        let grid = lines.map { $0.map(\.height) }
-        
-        var start: Point = .origin
-        var end: Point = .origin
-        for point in product(0..<lines.count, 0..<lines[0].count).map({ Point($0.0, $0.1) }) {
-            switch lines[point] {
-            case "S":
-                start = point
-            case "E":
-                end = point
-            default:
-                break
-            }
-        }
-        return shortestPath(grid: grid, start: start, end: end)!
-    }
-    
-    func solve2(input: String) -> Int {
+    private func solve(input: String, startCharacters: [Character]) -> Int {
         let lines = input.lines.map { Array($0) }
         let grid = lines.map { $0.map(\.height) }
         
         var starts: [Point] = []
         var end: Point = .origin
         for point in product(0..<lines.count, 0..<lines[0].count).map({ Point($0.0, $0.1) }) {
-            switch lines[point] {
-            case "S", "a":
+            switch lines[point]! {
+            case let x where startCharacters.contains(x):
                 starts.append(point)
             case "E":
                 end = point
@@ -73,6 +54,14 @@ struct AOC12: Puzzle {
                 break
             }
         }
-        return starts.minimum({ shortestPath(grid: grid, start: $0, end: end) ?? Int.max })
+        return shortestPath(grid: grid, startPoints: starts, endPoint: end)!
+    }
+    
+    func solve1(input: String) -> Int {
+        solve(input: input, startCharacters: ["S"])
+    }
+    
+    func solve2(input: String) -> Int {
+        solve(input: input, startCharacters: ["S", "a"])
     }
 }
