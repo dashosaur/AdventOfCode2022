@@ -341,4 +341,18 @@ class PuzzleTests: XCTestCase {
         XCTAssertEqual(puzzle.solve1(input: ""), 110888)
         XCTAssertEqual(puzzle.solve2(input: ""), 25590400731)
     }
+    
+    func testAOC12() {
+        let puzzle = AOC12()
+        let input = """
+        Sabqponm
+        abcryxxl
+        accszExk
+        acctuvwj
+        abdefghi
+        """
+        
+        XCTAssertEqual(puzzle.solve1(input: input), 31)
+        XCTAssertEqual(puzzle.solve2(input: input), 29)
+    }
 }

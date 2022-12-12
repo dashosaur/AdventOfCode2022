@@ -28,6 +28,12 @@ struct Point: Hashable {
     
     static let origin = Point(0, 0)
     
+    static let unitVectors = [Point(0, 1), Point(1, 0), Point(0, -1), Point(-1, 0)]
+    
+    var neighbors: [Point] {
+        Self.unitVectors.map { self + $0 }
+    }
+    
     static func +(lhs: Point, rhs: Point) -> Point {
         Point(lhs.x + rhs.x, lhs.y + rhs.y)
     }
@@ -54,5 +60,13 @@ struct Point: Hashable {
     
     var manhattanDistance: Int {
         abs(x) + abs(y)
+    }
+}
+
+extension Collection where Index == Int, Element : Collection, Element.Index == Int {
+    subscript(point: Point) -> Element.Element? {
+        guard (0..<count).contains(point.x) else { return nil }
+        guard (0..<self[point.x].count).contains(point.y) else { return nil }
+        return self[point.x][point.y]
     }
 }

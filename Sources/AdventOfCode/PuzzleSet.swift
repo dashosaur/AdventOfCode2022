@@ -26,7 +26,7 @@ struct PuzzleSet {
         9 : AOC9(),
         10 : AOC10(),
         11 : AOC11(),
-//        12 : AOC12(),
+        12 : AOC12(),
 //        13 : AOC13(),
 //        14 : AOC14(),
 //        15 : AOC15(),
