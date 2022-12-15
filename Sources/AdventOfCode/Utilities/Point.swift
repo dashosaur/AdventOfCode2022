@@ -61,6 +61,10 @@ struct Point: Hashable {
     var manhattanDistance: Int {
         abs(x) + abs(y)
     }
+    
+    func manhattanDistance(to other: Point) -> Int {
+        abs(other.x - x) + abs(other.y - y)
+    }
 }
 
 extension Collection where Index == Int, Element : Collection, Element.Index == Int {
